@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const url ='https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=74c6e93d654944528c1b6955cd1b9c10';
     const apiKey = '74c6e93d654944528c1b6955cd1b9c10';
 
+    //Fetching the Url
     fetch(url)
       .then(response => {
         console.log('Raw response object:', response);  
@@ -18,20 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Function to dynamically create and display the articles
     function displayArticles(articles) {
-      const newsContainer = document.getElementById('news-container');
+      const newsContainer = document.getElementById('main-feed');  
       
-      console.log('Rendering articles...');  
-    
       articles.forEach(article => {
         console.log('Article:', article);
         const articleDiv = document.createElement('div');
-        articleDiv.classList.add('article');
+        articleDiv.classList.add('feed-card');
         const title = document.createElement('h2');
-        title.textContent = article.title;
+        const truncatedTitle = article.title.length 
+        > 30? article.title.slice(0, 30) + "....": article.title;
+          title.textContent = truncatedTitle;
         console.log('Title:', article.title);  
         const img = document.createElement('img');
         img.src = article.urlToImage || 'default-image.jpg';  
         img.alt = article.title;
+        img.height = 600;
+        img.width = 400; 
         console.log('Image URL:', img.src);  
         const description = document.createElement('p');
         description.textContent = article.description || 'No description available';
@@ -43,15 +46,37 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('Article link:', article.url);  
     
         // Append the elements to the article div
-        articleDiv.appendChild(title);
         articleDiv.appendChild(img);
+        articleDiv.appendChild(title);
         articleDiv.appendChild(description);
-        articleDiv.appendChild(link);
-    
-        // Append the article div to the news container
-         /*newsContainer.appendChild(articleDiv);*/
+        articleDiv.addEventListener("click", () => {
+          window.open(link, "_blank");
+        });
+         newsContainer.appendChild(articleDiv);
       }); 
     
       console.log('Articles rendered successfully!');  
     }; 
+
+    //Search box event listener
+    fetchNews(url);
+
+    const searchButton = document.getElementById("search-button");
+    const searchInput = document.getElementById("search-input");
+    searchButton.addEventListener('click', () => {
+      const searchQuery = searchInput.value.trim();
+      if(searchQuery) {
+        fetchNews(url);
+      }
+    });
+
+    //Event listener for handling "Enter" key press
+    // searchInput.addEventListener('keypress', (event) =>{
+    //   if (event.key === 'Enter') {
+    //     const searchQuery = searchInput.value.trim();
+    //     if(searchQuery) {
+    //       fetchNews(url);
+    //     }
+    //   }
+    // })
 });  

@@ -1,6 +1,6 @@
 # News Api App
 
-Description
+## Description
 This project contains a simple news interactive app created using HTML, CSS and javascript to handle the functionality. It allows users to search for a article online while also scrolling through the latest articles listed in the main page. All this is done with the help from a public API. The app offers users a simple way to look up current events in the tech space, politices, celebratiy latest and many more options. 
 
 ## Instructions 

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     const url ='https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=74c6e93d654944528c1b6955cd1b9c10';
     const apiKey = '74c6e93d654944528c1b6955cd1b9c10';
 
@@ -57,26 +57,33 @@ document.addEventListener("DOMContentLoaded", () => {
     
       console.log('Articles rendered successfully!');  
     }; 
-
+    
     //Search box event listener
-    fetchNews(url);
-
-    const searchButton = document.getElementById("search-button");
-    const searchInput = document.getElementById("search-input");
-    searchButton.addEventListener('click', () => {
-      const searchQuery = searchInput.value.trim();
-      if(searchQuery) {
-        fetchNews(url);
+    searchButton.addEventListener('click', async () => {
+      const query = searchBox.value.trim()
+      if(query !== ""){
+        try{
+          const articles = await fetchNewsQuery(query)
+          displayArticles(articles)
+        }catch(error){
+          console.log("Error fetching news by query", error)
+        }
       }
-    });
-
-    //Event listener for handling "Enter" key press
-    // searchInput.addEventListener('keypress', (event) =>{
-    //   if (event.key === 'Enter') {
-    //     const searchQuery = searchInput.value.trim();
-    //     if(searchQuery) {
-    //       fetchNews(url);
-    //     }
-    //   }
-    // })
-});  
+    })
+    
+    function fetchNewsQuery(query){
+     query(url)
+      .then(response => {
+        console.log('Raw response object:', response);
+        if(!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Passed JSON data', data);
+        console.log('Articles array', data.articles);
+        displayArticles(data.articles);
+      })
+    }
+});

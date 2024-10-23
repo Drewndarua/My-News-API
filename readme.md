@@ -1,3 +1,13 @@
+News Api App
+
+Description
+This project contains a simple news interactive app created using HTML, CSS and javascript to handle the functionality. It allows users to search for a article online while also scrolling through the latest articles listed in the main page. All this is done with the help from a public API. The app offers users a simple way to look up current events in the tech space, politices, celebratiy latest and many more options. 
+
+Instructions 
+1. Fork the repository 
+2. Clone the forked repositoy into your terminal 
+3. Open the repository in the terminal 
+
 License
 MIT License
 

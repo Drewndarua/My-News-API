@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const url ='https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=74c6e93d654944528c1b6955cd1b9c10';
-    const apiKey = '74c6e93d654944528c1b6955cd1b9c10';
+    const url ='https://newsdata.io/api/1/news?apikey=pub_56528e266206da0c710f706965a151404beb7&q=business ';
+    const apiKey = 'pub_56528e266206da0c710f706965a151404beb7';
 
     //Fetching the Url
     fetch(url)

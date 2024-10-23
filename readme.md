@@ -1,12 +1,27 @@
-News Api App
+# News Api App
 
 Description
 This project contains a simple news interactive app created using HTML, CSS and javascript to handle the functionality. It allows users to search for a article online while also scrolling through the latest articles listed in the main page. All this is done with the help from a public API. The app offers users a simple way to look up current events in the tech space, politices, celebratiy latest and many more options. 
 
-Instructions 
+## Instructions 
 1. Fork the repository 
 2. Clone the forked repositoy into your terminal 
 3. Open the repository in the terminal 
+
+## Run Locally
+Setup/Installation Requirements
+To run this app locally, you will need a PC with the following:
+
+Access to the internet
+Installation Process
+Clone this repository using
+
+  git clone git@github.com:Drewndarua/My-News-API.git
+or by downloading a ZIP file of the code.
+
+The repository, if downloaded as a .zip file will need to be extracted to your preferred location and opened
+
+Open the index.html file in your preferred browser.
 
 License
 MIT License

@@ -23,7 +23,8 @@ The repository, if downloaded as a .zip file will need to be extracted to your p
 
 Open the index.html file in your preferred browser.
 
-License
+
+## License
 MIT License
 
 Copyright © 2024 Andrew Ndarua
